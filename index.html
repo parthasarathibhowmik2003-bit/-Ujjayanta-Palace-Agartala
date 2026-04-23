@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujjayanta Palace | Royal Heritage of Tripura</title>
+    <style>
+        :root {
+            --primary: #8B0000;
+            --gold: #D4AF37;
+            --cream: #FFF8E7;
+            --dark: #1a1a1a;
+            --text: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--cream);
+        }
+        
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, var(--primary), #6B0000);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+        
+        nav a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        nav a:hover {
+            color: #fff;
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 60px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+                        url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ujjayanta_Palace_Agartala_Tripura_India.jpg/1200px-Ujjayanta_Palace_Agartala_Tripura_India.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            margin-bottom: 1rem;
+            font-family: Georgia, serif;
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gold);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+        }
+        
+        /* History Section */
+        .history-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .history-text {
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+        
+        .history-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight-box {
+            background: white;
+            padding: 2rem;
+            border-left: 5px solid var(--gold);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+        
+        .highlight-box h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Architecture Section */
+        .architecture {
+            background: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Museum Section */
+        .museum-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .gallery-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.5rem;
+        }
+        
+        /* Visitor Info */
+        .visitor-info {
+            background: linear-gradient(135deg, var(--primary), #6B0000);
+            color: white;
+            border-radius: 20px;
+            padding: 3rem;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .info-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .info-card h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .info-card ul {
+            list-style: none;
+        }
+        
+        .info-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .info-card li:last-child {
+            border-bottom: none;
+        }
+        
+        /* How to Reach */
+        .reach-section {
+            background: white;
+        }
+        
+        .transport-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .transport-card {
+            border: 2px solid var(--cream);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .transport-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .transport-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .history-content {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+        
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        section {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#history">History</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#museum">Museum</a></li>
+            <li><a href="#visit">Visit</a></li>
+            <li><a href="#reach">How to Reach</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Ujjayanta Palace</h1>
+            <p>The Royal Crown of Agartala, Tripura</p>
+            <p style="font-size: 1.2rem; font-style: italic; margin-bottom: 2rem;">Named by Nobel Laureate Rabindranath Tagore</p>
+            <a href="#visit" class="btn">Plan Your Visit</a>
+        </div>
+    </header>
+
+    <!-- History Section -->
+    <section id="history">
+        <h2 class="section-title">Royal Legacy</h2>
+        <div class="history-content">
+            <div class="history-text">
+                <p>Standing majestically in the heart of Agartala, Ujjayanta Palace is a magnificent 19th-century royal residence that served as the seat of the Manikya Dynasty, which ruled Tripura for over 1,000 years [^3^]. Built by <strong>Maharaja Radha Kishore Manikya</strong> between 1899 and 1901, this gleaming white edifice covers approximately one square kilometer in the capital city [^4^].</p>
+                
+                <p>The palace derives its poetic name from Nobel Laureate <strong>Rabindranath Tagore</strong>, who was so captivated by its beauty that he not only named it "Ujjayanta" but also penned his renowned poem "The Palace" inspired by its grandeur [^1^]. After Tripura became a state of India, the Government purchased the palace, which later housed the State Legislative Assembly until 2011 [^3^].</p>
+                
+                <div class="highlight-box">
+                    <h3>🏛️ Did You Know?</h3>
+                    <p>The palace compound stretches across approximately 250 acres with expansive Mughal-style gardens, pools, and fountains. The surrounding grounds cover nearly 800 acres, making it one of the most spacious royal complexes in Northeast India [^1^].</p>
+                </div>
+            </div>
+            <div class="history-image">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ujjayanta_Palace_Agartala_Tripura_India.jpg/600px-Ujjayanta_Palace_Agartala_Tripura_India.jpg" 
+                     alt="Ujjayanta Palace Front View" 
+                     style="width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                <p style="text-align: center; margin-top: 1rem; font-style: italic; color: #666;">The gleaming white facade of Ujjayanta Palace</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="architecture">
+        <h2 class="section-title">Architectural Marvel</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
+            Designed by British architects, the palace showcases a unique fusion of <strong>Indo-Saracenic and Neoclassical</strong> architectural styles, reminiscent of Agra's Taj Mahal [^2^].
+        </p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🏰</div>
+                <h3>Three Majestic Domes</h3>
+                <p>The palace features three soaring domes, with the central dome reaching an impressive <strong>86 feet</strong> high, creating a stunning skyline against the Agartala sky [^1^].</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Chinese Room</h3>
+                <p>Adorned with exquisite tiles and a ceiling crafted by artisans brought from China, showcasing international craftsmanship and royal opulence [^1^].</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💎</div>
+                <h3>Belgian Glass Ceiling</h3>
+                <p>The palace boasts an incredible Belgian glass ceiling that filters natural light into the royal chambers, creating an ethereal atmosphere [^1^].</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🐘</div>
+                <h3>Royal Throne</h3>
+                <p>A magnificent throne made from elephant tusks stands as a testament to the craftsmanship and regal splendor of the Manikya dynasty [^1^].</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🌸</div>
+                <h3>Mughal Gardens</h3>
+                <p>Huge Mughal-style gardens beautified by serene pools, vibrant flora, and musical fountains create a picturesque oasis surrounding the palace [^3^].</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🚗</div>
+                <h3>Royal Carriage</h3>
+                <p>Designed by the renowned British firm Martin & Burn, the royal carriage was used to transport both the King and Queen in ceremonial processions [^1^].</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Museum Section -->
+    <section id="museum">
+        <h2 class="section-title">State Museum</h2>
+        <p style="text-align: center; max-width: 900px; margin: 0 auto 3rem; font-size: 1.1rem;">
+            Today, Ujjayanta Palace houses the <strong>State Museum of Tripura</strong>, offering visitors an engaging journey through the region's rich cultural tapestry with 22 display galleries [^6^].
+        </p>
+        
+        <div class="museum-gallery">
+            <div class="gallery-item">
+                <h3>🏺 Royal Artifacts</h3>
+                <p>Explore the legacy of the Manikya Dynasty through an impressive collection of royal artifacts, coins, and memorabilia that adorned the palace halls for centuries.</p>
+            </div>
+            
+            <div class="gallery-item">
+                <h3>⚔️ Weapons Gallery</h3>
+                <p>View an extensive collection of historical weapons, arms, and armory used by the royal forces and tribal warriors of ancient Tripura.</p>
+            </div>
+            
+            <div class="gallery-item">
+                <h3>🧵 Textiles & Handlooms</h3>
+                <p>Discover the rich weaving traditions of Tripura, featuring exquisite handloom textiles, traditional costumes, and intricate embroidery work.</p>
+            </div>
+            
+            <div class="gallery-item">
+                <h3>🎨 Paintings & Art</h3>
+                <p>Admire rare paintings and artworks that depict the cultural life, royal ceremonies, and natural beauty of the Tripura kingdom.</p>
+            </div>
+            
+            <div class="gallery-item">
+                <h3>🎭 Tribal Heritage</h3>
+                <p>Learn about the indigenous communities of Tripura through displays of traditional jewelry, bamboo crafts, and tribal cultural artifacts.</p>
+            </div>
+            
+            <div class="gallery-item">
+                <h3>📜 Manuscripts</h3>
+                <p>View ancient manuscripts and historical documents that chronicle the 1,000-year reign of the Manikya Dynasty over the region.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visitor Information -->
+    <section id="visit">
+        <div class="visitor-info">
+            <h2 class="section-title" style="color: white;">Plan Your Visit</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Experience the royal splendor and living history within the walls of Ujjayanta Palace</p>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🕐 Timings</h3>
+                    <ul>
+                        <li><strong>Opening:</strong> 10:15 AM</li>
+                        <li><strong>Closing:</strong> 5:15 PM</li>
+                        <li><strong>Closed:</strong> Mondays</li>
+                        <li><strong>Evening:</strong> Floodlight show & musical fountain</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>🎟️ Entry Details</h3>
+                    <ul>
+                        <li><strong>Location:</strong> Heart of Agartala City</li>
+                        <li><strong>Complex:</strong> ~250 acres</li>
+                        <li><strong>Best Time:</strong> October to March</li>
+                        <li><strong>Photography:</strong> Restricted in some areas</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>🛍️ Nearby Attractions</h3>
+                    <ul>
+                        <li>Ujjayanta Market (adjacent)</li>
+                        <li>Bamboo handicraft shops</li>
+                        <li>Handloom textile stores</li>
+                        <li>Tribal jewelry vendors</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>💡 Pro Tips</h3>
+                    <ul>
+                        <li>Visit during evening for floodlight view</li>
+                        <li>Watch the musical fountain show</li>
+                        <li>Explore the Mughal gardens</li>
+                        <li>Buy traditional Tripura souvenirs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Reach -->
+    <section id="reach" class="reach-section">
+        <h2 class="section-title">How to Reach</h2>
+        
+        <div class="transport-grid">
+            <div class="transport-card">
+                <h3>✈️ By Air</h3>
+                <p><strong>Maharaja Bir Bikram Airport (IXA)</strong> is located 12 km northwest of Agartala [^4^]. It is the second busiest airport in Northeast India after Guwahati, with daily flights by Air India and other major carriers connecting to major Indian cities.</p>
+            </div>
+            
+            <div class="transport-card">
+                <h3>🚂 By Train</h3>
+                <p><strong>Agartala Railway Station</strong> is located 5.5 km from the city center [^4^]. It is the first state capital of independent India connected to the national rail network, with direct connections to Guwahati and the rest of India via broad gauge.</p>
+            </div>
+            
+            <div class="transport-card">
+                <h3>🚌 By Road</h3>
+                <p>Agartala is well-connected via <strong>National Highway 44</strong> [^4^]. Key distances: Guwahati (785 km), Shillong (686 km), Silchar (460 km), Aizawl (293 km), and Dharmanagar (173 km). Regular bus and cab services are available.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h2 style="color: var(--gold); margin-bottom: 1rem;">Ujjayanta Palace</h2>
+            <p style="margin-bottom: 2rem;">A Crown Jewel of Northeast India | Tripura Government Heritage Site</p>
+            
+            <div class="footer-links">
+                <a href="https://tripuratourism.gov.in" target="_blank">Tripura Tourism</a>
+                <a href="https://westtripura.nic.in" target="_blank">District Administration</a>
+                <a href="#home">Back to Top</a>
+            </div>
+            
+            <p style="font-size: 0.9rem; opacity: 0.8;">
+                 Tripura Tourism Department. Preserving the royal heritage of the Manikya Dynasty.<br>
+                Information sourced from official Tripura Government portals.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
